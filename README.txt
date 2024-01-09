@@ -6,9 +6,16 @@
 	- git branch -M main
 	- git remote add origin https://github.com/Nilay-Kalaskar/Aspect_Flutter_Batch.git
 	- git push -u origin main
---------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
 * …or push an existing repository from the command line :-
 	- git remote add origin https://github.com/Nilay-Kalaskar/Aspect_Flutter_Batch.git
 	- git branch -M main
 	- git push -u origin main
---------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------
+* GitHub [Team]:-
+	- Nilay-Kalaskar :- Nilay Kalaskar
+	- Sakshishingne :- Sakshi Shingne
+	- kshrivastav360 :- Krunal Shrivastav
+	- payalpaunikar2001 :- Payal Paunikar
+	- Suv22 :- Sakshi Vajre
+------------------------------------------------------------------------------------------
