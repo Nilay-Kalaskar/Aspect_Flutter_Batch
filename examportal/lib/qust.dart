@@ -21,35 +21,64 @@ class _QuestionScreenState extends State<QuestionScreen> {
         currentQuestion = answer[questionIndex];
         currentQuestion.answers.shuffle();
       } else {
-        print("Nomore Questions Available");
+        print("No more Questions Available");
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // var screenDimension = MediaQuery.of(context).size;
-
-    return Column(
-      children: [
-        const SizedBox(height: 20.0),
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20.0),
-            child: Text(
-              "Q.${questionIndex + 1}) ${currentQuestion.text}",
-              style: const TextStyle(
-                fontSize: 25.0,
-                fontWeight: FontWeight.bold,
-              ),
+    return Column(children: [
+      const SizedBox(height: 20.0),
+      Center(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20.0),
+          child: Text(
+            "Q.${questionIndex + 1}) ${currentQuestion.text}",
+            style: const TextStyle(
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
-        const SizedBox(height: 20.0),
-        ...currentQuestion.answers.map((item) {
-          return Mybutton(item, goToNextQuestion);
-        }),
-      ],
-    );
+      ),
+      const SizedBox(height: 20.0),
+      ...currentQuestion.answers.map((item) {
+        return Mybutton(item, goToNextQuestion);
+      }),
+      const SizedBox(
+        height: 50.0,
+      ),
+      if(questionIndex==answer.length-1)
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.yellow,
+            fixedSize: const Size(200, 60),
+            side: const BorderSide(
+              color: Colors.black,
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+            ),
+            // shadowColor: Colors.yellow,
+            // elevation: 15,
+            
+          ),
+          onPressed: (){}, 
+         child: const Text("Finish",
+         style: TextStyle(
+          fontSize: 25.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.black,
+          
+        
+         ),
+         
+         ),
+          ),
+      
+    ]);
   }
+  
+ 
 }

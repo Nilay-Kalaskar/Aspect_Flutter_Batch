@@ -23,7 +23,8 @@ class _QuizeState extends State<Quize> {
   @override
   Widget build(BuildContext context) {
      curscreen =
-        curscreen1 == "start" ? MyApp(changeScreen) : const QuestionScreen();
+        curscreen1 == "start" 
+        ? MyApp(changeScreen) : const QuestionScreen();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
