@@ -1,4 +1,5 @@
 import 'package:examportal/qust.dart';
+import 'package:examportal/resultScr.dart';
 import 'package:examportal/start_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -14,17 +15,21 @@ class _QuizeState extends State<Quize> {
   var curscreen;
 
   void changeScreen() {
-    
     setState(() {
-      curscreen1 = "ques";
+      curscreen1 = "quest";
     });
   }
 
+  bool quizFinished = false;
+
   @override
-  Widget build(BuildContext context) {
-     curscreen =
-        curscreen1 == "start" 
-        ? MyApp(changeScreen) : const QuestionScreen();
+    Widget build(BuildContext context) {
+    curscreen =
+        curscreen1 == "start" ? MyApp(changeScreen) : QuestionScreen(changeScreen: changeScreen, onFinish: () {
+          setState(() {
+            quizFinished = true;
+          });
+        });
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -46,7 +51,7 @@ class _QuizeState extends State<Quize> {
               Color.fromARGB(163, 171, 239, 171)
             ], begin: Alignment.topLeft, end: Alignment.bottomRight),
           ),
-          child: curscreen,
+         child: quizFinished ? const ResScreen() : curscreen,
         ),
       ),
     );

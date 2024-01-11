@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:examportal/data/ansdata.dart';
 
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({Key? key}) : super(key: key);
-
+  final Function? changeScreen;
+  final Function? onFinish;
+  const QuestionScreen({this.changeScreen, this.onFinish, super.key});
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
 }
@@ -21,7 +22,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
         currentQuestion = answer[questionIndex];
         currentQuestion.answers.shuffle();
       } else {
-        print("No more Questions Available");
+      widget.onFinish!();
       }
     });
   }
@@ -49,7 +50,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
       const SizedBox(
         height: 50.0,
       ),
-      if(questionIndex==answer.length-1)
+      if (questionIndex == answer.length - 1)
         ElevatedButton(
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.yellow,
@@ -62,23 +63,19 @@ class _QuestionScreenState extends State<QuestionScreen> {
             ),
             // shadowColor: Colors.yellow,
             // elevation: 15,
-            
           ),
-          onPressed: (){}, 
-         child: const Text("Finish",
-         style: TextStyle(
-          fontSize: 25.0,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-          
-        
-         ),
-         
-         ),
+          onPressed: () {
+            widget.onFinish!();
+          },
+          child: const Text(
+            "Finish",
+            style: TextStyle(
+              fontSize: 25.0,
+              fontWeight: FontWeight.bold,
+              color: Colors.black,
+            ),
           ),
-      
+        ),
     ]);
   }
-  
- 
 }
