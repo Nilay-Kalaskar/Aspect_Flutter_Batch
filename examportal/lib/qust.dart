@@ -22,7 +22,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
         currentQuestion = answer[questionIndex];
         currentQuestion.answers.shuffle();
       } else {
-      widget.onFinish!();
+        widget.onFinish!();
       }
     });
   }
@@ -30,7 +30,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      const SizedBox(height: 20.0),
+      const SizedBox(height: 21.0),
       Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 20.0),
